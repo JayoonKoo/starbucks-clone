@@ -55,9 +55,9 @@ new Swiper('.promotion .swiper-container', {
   spaceBetween: 10,
   centeredSlides: true,
   loop: true,
-  // autoplay: {
-  //   delay: 5000
-  // },
+  autoplay: {
+    delay: 5000
+  },
   pagination: {
     el: '.promotion .swiper-pagination',
     clickable: true
@@ -65,5 +65,18 @@ new Swiper('.promotion .swiper-container', {
   navigation: {
     prevEl: '.promotion .swiper-prev',
     nextEl: '.promotion .swiper-next'
+  }
+});
+
+const promotionEl = document.querySelector('.promotion');
+const promotionToggleEl = document.querySelector('.toggle-promotion');
+let isHidePromotion = false;
+
+promotionToggleEl.addEventListener('click', function () {
+  isHidePromotion = !isHidePromotion;
+  if (isHidePromotion){
+    promotionEl.classList.add('hide');
+  } else {
+    promotionEl.classList.remove('hide');
   }
 });
